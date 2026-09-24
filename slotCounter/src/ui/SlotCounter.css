@@ -1,0 +1,48 @@
+.widget-slotcounter-clickable {
+    cursor: pointer;
+}
+
+.widget-slotcounter {
+    display: inline-block;
+}
+
+.widget-slotcounter.badge:empty {
+    display: initial;
+    /* Fix padding to stay round */
+    padding: 3px 10px;
+}
+
+.widget-slotcounter.label:empty {
+    display: initial;
+    /* Fix padding to stay square */
+    padding: 0.2em 0.8em 0.3em;
+}
+
+.widget-slotcounter.badge {
+    min-width: 18px;
+    min-height: 18px;
+}
+
+/* Default container class (used when "containerClassName" is empty) */
+.custom-class {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border: 2px solid #6c757d;
+    border-radius: 5px;
+}
+
+/* Default character class (used when "charClassName" is empty) */
+.custom-char {
+    font-size: 2rem;
+    color: #5440c9;
+    margin: 0 5px;
+    font-family: "Roboto", sans-serif;
+    /* Kept from 1.0.0. No "bounce" keyframes are defined, so this only has an effect if the theme defines them. */
+    animation: bounce 1s infinite;
+}
+
+.slotcounter-preview {
+    font-size: 1rem;
+}

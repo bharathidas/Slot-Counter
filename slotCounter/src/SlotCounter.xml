@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="mendix.slotcounter.SlotCounter" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Slot Counter</name>
+    <description>slot counter</description>
+    <icon>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAABp1BMVEUAAABV//9mzP9LtP9Ms/9Jtv9NsvdJsfpLtPpJsfdJsfhJsvhJsvdKsvdJsPhKsPhJsfdJsPhJsfdIsfhJsfdIsPdJsfhJsfhJsPhJsPhIsfhIsPdJsPdKsPdKsfdNsvdOsvdPs/dQs/dRtPdStPdTtPdUtfdWtvdXtvdauPdcuPdeufdeufhguvhiu/hju/hkvPhmvfhnvfhpvvhrv/huwPhvwfhxwfhywvhzwvh4xfl5xfl6xfl8xvl9xvl9x/mByPmCyfmFyvmGyvmJzPmKzPmLzfmNzvqPzvqQz/qT0PqU0PqU0fqX0vqY0vqa0/qe1fqg1vqj1/uk1/un2fup2vut2/uv3Puw3Puw3fuz3vu13/u23/u34Pu44Pu64fu64fy84vy94vy+4/y/4/zD5fzE5fzG5vzH5vzI5/zK6PzL6PzR6/zT7P3U7P3V7f3W7f3Y7v3Z7v3c8P3e8f3f8f3g8f3i8v3l8/3l9P3n9P3r9v7t9/7u9/7v+P7w+P7x+f7y+f70+v71+v74/P75/P76/f77/f78/f78/v79/v7+/v7////6dMsRAAAAG3RSTlMAAwURGxwhMTNic3SEh4iVp7XBzejt7vH5/f6PsMNWAAABsklEQVR4AWIYfGAUjIJRMAqYuYREJKWJAqLCPGwY+jnFpEkBEryMqPr5pEkFgkwo9kuTDviR/S9GhgFSHAgDuKXJAQIIA4TIMkAcEY4i0mQBVrgBkuQZwA43QJo8wIFhQEhEOIBQOutHJozDOP5Crp4e1RhkJ0tKGJFd6oNEdtmJyEIzpaZl5nrRZgaHM/2Pf5/vwXXfyagXgG93bwSAlEolowLMm9w83gibhXH2gKKVdD67gTnWjwCk+VVjMQS4suSnnjMLRVFc9sAHvAX2A9fySaXNBMbEZVUWscaHIMRuqwBgD8hDEbnsRmfjUKJkAQZGCTlO/xWBwIADQLIZBlY441MvfoF1xlFS/4fy+bzXKh4dgNJE7L3eh3tmtuWa+AMcMIY3dgUvZQpGEYmMw2kD7HC+R29UqyoXLaBd0QZxzgXgikLLDSqJTKU5HOcS0MsbA9jPqtwCRvXm2eorBbNIJBw3KJ9O4Yl+AAXdnyaLt7PWN3jRWLvzmAVp94zO5+n41/onfo/UpExxZqI0O7NQr0DhIq9Io7hQpbRYp7hiobRqo6ByFcNWuY6CUTAKRgEAo8X0lBD3V30AAAAASUVORK5CYII=
+    </icon>
+    <properties>
+        <propertyGroup caption="General">
+            
+            <property key="counterNumberKey" type="attribute" required="true">
+                <caption>Counter Number</caption>
+                <description>The value to be displayed. It can be a number or a string with numbers and commas.</description>
+                <attributeTypes>
+                    <attributeType name="String"/>
+                    <attributeType name="Integer"/>                    
+                </attributeTypes>
+            </property>
+            <property key="startValueKey" type="attribute" required="false">
+                <caption>startValue</caption>
+                <description>The initial value to be displayed before the animation starts. It sets the beginning of the slot machine animation.</description>
+                <attributeTypes>
+                    <attributeType name="String"/>
+                    <attributeType name="Integer"/>                    
+                </attributeTypes>
+            </property>
+            <property key="startValueOnceKey" type="attribute" required="false">
+                <caption>startValueOnce</caption>
+                <description>If set to true, the animation starts from the startValue only for the first render. For subsequent animations, it starts from the last value. Default is false.</description>
+                <attributeTypes>
+                    <attributeType name="Boolean"/>                    
+                </attributeTypes>
+            </property>
+            <property key="durationKey" type="attribute" required="false">
+                <caption>duration</caption>
+                <description>The duration of the animation in seconds. Default is 0.7</description>
+                <attributeTypes>
+                    <attributeType name="Integer"/>                    
+                </attributeTypes>
+            </property>
+             <property key="speedKey" type="attribute" required="false">
+                <caption>speed</caption>
+                <description>The speed of counter when running. Default is 1.4</description>
+                <attributeTypes>
+                    <attributeType name="Integer"/>                    
+                </attributeTypes>
+            </property>
+            <property key="delayKey" type="attribute" required="false">
+                <caption>delay</caption>
+                <description>The delay time of each column</description>
+                <attributeTypes>
+                    <attributeType name="Integer"/>                    
+                </attributeTypes>
+            </property>
+            <property key="dummyCharactersKey" type="attribute" required="false">
+                <caption>dummyCharacters</caption>
+                <description>A comma-separated list of dummy characters to be used in the animation (e.g. A,B,C). Defaults to random numbers from 0 to 9</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="dummyCharacterCountKey" type="attribute" required="false">
+                <caption>dummyCharacterCount</caption>
+                <description>The number of dummy characters to be displayed in the animation before reaching the target character. Default is 6</description>
+                <attributeTypes>
+                    <attributeType name="Integer"/>                    
+                </attributeTypes>
+            </property>
+            <property key="autoAnimationStartKey" type="attribute" required="false">
+                <caption>autoAnimationStart</caption>
+                <description>Determines whether the animation should start automatically when the component is first mounted. Default is true</description>
+                <attributeTypes>
+                    <attributeType name="Boolean"/>                    
+                </attributeTypes>
+            </property>
+            <property key="animateUnchangedKey" type="attribute" required="false">
+                <caption>animateUnchanged</caption>
+                <description>When false (default), only the characters that have changed are animated. When true, unchanged characters are animated as well.</description>
+                <attributeTypes>
+                    <attributeType name="Boolean"/>                    
+                </attributeTypes>
+            </property>
+            <property key="hasInfiniteListKey" type="attribute" required="false">
+                <caption>hasInfiniteList</caption>
+                <description>Determines whether the list should appear as continuous, with the end of the target character seamlessly connected to the beginning. Default is false</description>
+                <attributeTypes>
+                    <attributeType name="Boolean"/>                    
+                </attributeTypes>
+            </property>
+            
+            <property key="sequentialAnimationModeKey" type="attribute" required="false">
+                <caption>sequentialAnimationMode</caption>
+                <description>Determines if the animation should increment or decrement sequentially from the startValue to value instead of random animation. Default is false</description>
+                <attributeTypes>
+                    <attributeType name="Boolean"/>                    
+                </attributeTypes>
+            </property>
+            <property key="useMonospaceWidthKey" type="attribute" required="false">
+                <caption>useMonospaceWidth</caption>
+                <description>Ensures that all numeric characters occupy the same horizontal space, just like they would in a monospace font. Default is false</description>
+                <attributeTypes>
+                    <attributeType name="Boolean"/>                    
+                </attributeTypes>
+            </property>
+            <property key="directionKey" type="attribute" required="false">
+                <caption>direction</caption>
+                <description>Sets the direction of the slot machine animation. Accepted values are 'bottom-up' and 'top-down'. Default is 'bottom-up'</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="debounceDelayKey" type="attribute" required="false">
+                <caption>debounceDelay</caption>
+                <description>Specifies the delay in milliseconds for debouncing animations. When the value changes rapidly, it allows the animation to execute smoothly. Default is 0</description>
+                <attributeTypes>
+                    <attributeType name="Integer"/>                    
+                </attributeTypes>
+            </property>
+            <property key="animateOnVisibleKey" type="attribute" required="false">
+                <caption>animateOnVisible</caption>
+                <description>Starts the animation when the component becomes visible in the viewport (again each time it scrolls back into view) instead of on load. Default is false</description>
+                <attributeTypes>
+                    <attributeType name="Boolean"/>                    
+                </attributeTypes>
+            </property>
+
+        </propertyGroup>
+        <propertyGroup caption="Styling and Class Names">
+
+        <property key="containerClassNameKey" type="attribute" required="false">
+                <caption>containerClassName</caption>
+                <description>The class name of container.</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="charClassNameKey" type="attribute" required="false">
+                <caption>charClassName</caption>
+                <description>The class name of each character.</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="separatorClassNameKey" type="attribute" required="false">
+                <caption>separatorClassName</caption>
+                <description>The class name of the separator character (. or ,).</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="valueClassNameKey" type="attribute" required="false">
+                <caption>valueClassName</caption>
+                <description>The class name for the value of the slot, making it possible to customize the styling and visibility of the value.</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="numberSlotClassNameKey" type="attribute" required="false">
+                <caption>numberSlotClassName</caption>
+                <description>The class name for the number slot, allowing you to customize the styling of the number slot.</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+            <property key="numberClassNameKey" type="attribute" required="false">
+                <caption>numberClassName</caption>
+                <description>The class name for the number, allowing you to customize the styling of the number.</description>
+                <attributeTypes>
+                    <attributeType name="String"/>                    
+                </attributeTypes>
+            </property>
+
+
+        </propertyGroup>
+    </properties>
+</widget>

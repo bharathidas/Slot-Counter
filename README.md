@@ -2,6 +2,36 @@
 
 Counter is a widget that helps you add animated and interactive number displays to your web applications. It's easy to use, works with different types of data, and lets you customize the animations to make your numbers stand out.
 
+## Version 1.1.0 for Mendix Studio Pro 10.24.17
+
+Download `mendix.SlotCounter.mpk` from the [Version1.1.0 release](https://github.com/bharathidas/Slot-Counter/releases/tag/Version1.1.0). The `mendix.SlotCounter.mpk` on `main` is always the latest version (**1.1.0**). For Mendix 9, use the [Version1.0 release](https://github.com/bharathidas/Slot-Counter/releases/tag/Version1.0).
+
+- Rebuilt with `@mendix/pluggable-widgets-tools` 10.16.0 for Studio Pro 10.24.17 (React client) and updated to react-slot-counter 3.0.1.
+- **autoAnimationStart** is now honoured. In 1.0 the counter always animated on load, whatever the attribute value.
+- **numberSlotClassName** and **numberClassName** are now applied.
+- An empty **dummyCharacters** attribute now uses random digits (1.0 showed blank characters while spinning).
+- Integer values are shown in full, without exponent notation (for example `123456789012345678901234`).
+- While the attribute is loading, the counter keeps showing its last value instead of going blank. Unavailable or empty settings fall back to their defaults.
+- The CSS class from the widget's **Class** property is added to the container.
+- The design-mode preview in Studio Pro shows the selected attribute, for example `[Amount]`.
+- Removed console logging; clearer property descriptions. The package is now about 16 KB.
+
+**Important when upgrading:** if an app sets the **autoAnimationStart** attribute to `false`, the counter will now show the value on load without animating (1.0 ignored the setting). Leave the attribute empty or set it to `true` to keep the old behaviour.
+
+**Upgrading:** replace the `.mpk` in your app's `widgets` folder, press **F4** in Studio Pro, and choose **Update all widgets** if Studio Pro reports that the widget definition has changed. If the running app still shows the old widget, use **App > Clean Deployment Directory** and run the app again.
+
+### Source code
+
+The widget source is in [`slotCounter/`](slotCounter). To build it:
+
+```
+cd slotCounter
+npm install
+npm run release
+```
+
+The package is written to `dist/<version>/mendix.SlotCounter.mpk`.
+
 ### Features
 #### •	Counter Number  
 The value to be displayed.
@@ -50,7 +80,7 @@ The class name for the number, allowing you to customize the styling of the numb
 
 ### Dependencies:
 
-• Mendix modeler 9.24.18.
+• Mendix Studio Pro 10.24.17 (widget 1.1.0). Widget 1.0 (release Version1.0) is for Mendix 9.24.18.
 
 ### Demo URL:
 https://slotcouter-sandbox.mxapps.io/login.html?profile=Responsive
